@@ -1,70 +1,12 @@
-$green-2: rgb(40,143,172);
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+$green-2: #288fac;
 
 body {
     button {
         font-weight: 300;
-    }
-}
-.h {
-    &\-18px {
-        height: 18px;
-    }
-    &\-20px {
-        height: 20px;
-    }
-    &\-40px {
-        height: 40px;
-    }
-    &\-50px {
-        height: 50px;
-    }
-}
-
-.w {
-    &\-18px {
-        width: 18px;
-    }
-    &\-20px {
-        width: 20px;
-    }
-    &\-40px {
-        width: 40px;
-    }
-    &\-66px {
-        width: 66px;
-    }
-    &\-80px {
-        width: 80px;
-    }
-    &\-100px {
-        width: 100px;
-    }
-    &\-140px {
-        width: 140px;
-    }
-    &\-160px {
-        width: 160px;
-    }
-    &\-280px {
-        width: 280px;
-    }
-    &\-320px {
-        width: 320px;
-    }
-}
-
-.max-w- {
-    &320 {
-        max-width: 320px;
-    }
-    &450 {
-        max-width: 450px;
-    }
-}
-
-.left {
-    &\-5\% {
-        left: 5%;
     }
 }
 
@@ -89,40 +31,13 @@ body {
 }
 
 .btn-primary {
-    background-color: $green-2;
-    color: rgb(255,255,255);
+    @apply bg-green-3 text-white;
 }
 .btn-outline-primary {
-    border-radius: 0.25rem;
-    border-width: 1px;
-    border-color: $green-2;
-    background-color: transparent;
-    color: $green-2;
+    @apply rounded bg-transparent text-green-3 border border-green-3;
 }
 
-.hover\:text-green-3:hover {
-    color: $green-2;
-}
 
-@media (min-width: 1024px) {
-    .min-lg {
-        &\:w {
-            &\-66px {
-                width: 66px;
-            }
-        
-            &\-100px {
-                width: 100px;
-            }
-        }
-    }
-}
-
-@media (min-width: 1080px) {
-    .min-xl {
-        &\:max-w-1170 {
-            max-width: 1170px
-        }
-    }
-
+.default-solid-btn {
+    @apply flex h-40px w-200px items-center justify-center rounded bg-green-3 text-white;
 }

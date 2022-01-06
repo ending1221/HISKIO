@@ -2,7 +2,7 @@
     <header class="fixed top-0 z-10 w-full bg-white shadow-sm h-50px">
         <section class="relative flex items-center justify-between h-full xl:mx-auto max-w-1170 ml-4 mr-2 lg:mr-2">
             <div class="flex items-stretch justify-start flex-grow h-full">
-                <a href="/" class="logo-hiskio block w-66px h-full bg-contain bg-center bg-no-repeat overflow-hidden whitespace-nowrap lg:block lg:mr-3 min-lg:w-100px block mr-3"></a>
+                <a href="/" class="logo-hiskio block w-66px h-full bg-contain bg-center bg-no-repeat overflow-hidden whitespace-nowrap lg:block lg:mr-3 lg:w-100px block mr-3"></a>
                 <a href="https://www.1111.com.tw/corp/73081297/" target="_blank" class="items-center mr-20px flex">
                     <img src="https://frontend.f5ezcode.in/img/header-recruit.3e1f6fd.png" alt="recruit" width="80px">
                 </a>
@@ -13,14 +13,17 @@
                         <a href="/teach" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3"> 我想開課
                         </a>
                     </li> 
-                    <li class="relative text-gray-700 header-btn lg:block">
+                    <li 
+                        v-if="isLogin"
+                        class="relative text-gray-700 header-btn lg:block">
                         <span class=""></span> 
                         <a href="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3">
                         <span class=""></span>
                         任務板
                         </a>
                     </li>
-                    <li class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 header-btn lg:block textBtn hover:text-green-3">
+                    <li v-if="isLogin"
+                        class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 header-btn lg:block textBtn hover:text-green-3">
                         <a href="/account/courses?tab=continue" class="">我的學習</a>
                     </li>
                 </ul> 
@@ -66,6 +69,12 @@
 <script>
 
 export default {
+    props: {
+        isLogin: {
+            type: Boolean,
+            default: false
+        }
+    },
     methods: {
         loginAlert() {
             this.$emit('change:LoginAlertState', true);
@@ -75,9 +84,9 @@ export default {
 </script>
 
 <style lang="scss">
+
 .logo-hiskio {
     background-image: url('@/assets/images/logo-hiskio.svg');
 }
-
 
 </style>

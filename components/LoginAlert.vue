@@ -1,6 +1,6 @@
 <template>
     <div v-if="login_alert" class="overlay flex justify-center items-center">
-        <div class="relative w-full max-h-screen overflow-auto bg-white bg-top bg-no-repeat bg-contain bg-layout max-w-450 rounded-xl pb-7 pt-10 md:h-auto  md:h-auto sm:rounded-xl sm:h-full sm:pb-12">
+        <div class="relative w-full max-h-screen overflow-auto bg-white bg-top bg-no-repeat bg-contain bg-layout max-w-450 rounded-xl pb-7 pt-10 sn-1000:h-auto  sn-1000:h-auto sm:rounded-xl sm:h-full sm:pb-12">
             <button 
                 class="absolute top-3 right-2.5 w-40px h-40px text-xl leading-none"
                 @click="closeLoginAlert">
@@ -46,19 +46,21 @@
                                 </svg>
                             </li> 
                             <p class="text-xs text-red-4"></p> 
-                            <li class="relative mt-8px">
+                            <li class="relative mt-2">
                                 <input v-model="password" type="password" placeholder="請輸入登入密碼" class="input-text"> 
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="absolute text-gray-400 top-1/2 transform -translate-y-1/2 w-20px h-20px left-5% svg-inline--fa fa-lock fa-w-14">
-                                    <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" class=""></path>
+                                    <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
                                 </svg>
                             </li> 
-                            <p class="text-xs text-red-4"></p>
+                            <p class="text-xs text-red-4">請輸入密碼</p>
                         </ul>
                     </div> 
                     <div class="flex items-center mx-auto policy w-320px mt-5">
-                        <a href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-18px h-18px bg-green rounded-2px mr-1">
+                        <a @click="changeConfirmState" 
+                            href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-18px h-18px bg-green rounded-2px mr-1">
                             <svg 
-                                v-show="confirm" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-check fa-w-16 fa-xs">
+                                v-show="confirm"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-check fa-w-16 fa-xs">
                                 <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" class=""></path>
                             </svg>
                         </a> 
@@ -68,7 +70,9 @@
                             </p>
                         </div>
                     </div> 
-                    <button class="mx-auto default-solid-btn w-320px mt-7 py-2">登入</button> 
+                    <button 
+                        @click="login" 
+                        class="mx-auto default-solid-btn w-320px mt-7 py-2">登入</button> 
                     <button class="flex justify-center mx-auto text-center btn-text-gray-600 mt-5">忘記密碼</button>
                 </div>
             </div>
@@ -77,6 +81,7 @@
 </template>
 
 <script>
+import { apiAuthLogin } from '~/api';
 export default {
     props: {
         login_alert: {
@@ -94,6 +99,28 @@ export default {
     methods: {
         closeLoginAlert() {
             this.$emit('change:LoginAlertState', false);
+        },
+        changeConfirmState() {
+            this.confirm = !this.confirm;
+        },
+        async login() {
+            try {
+                if(this.verifyLoginData()) {
+                    await apiAuthLogin({
+                        account: this.account,
+                        password: this.password,
+                        confirm: this.confirm
+                    })
+                }
+            } catch (error) {
+                
+            }
+        },
+        verifyLoginData() {
+
+            if(this.account && this.password && this.confirm) {
+
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 <template>
 <div>
     <Header @change:LoginAlertState="handleLoginAlertState" />
+    <Carts />
+    <OtherCourses />
     <LoginAlert 
         :login_alert="login_alert"
         @change:LoginAlertState="handleLoginAlertState"/>
@@ -12,10 +14,14 @@
 import '~/assets/scss/layout.scss';
 import Header from '~/components/Header.vue';
 import LoginAlert from '~/components/LoginAlert.vue';
+import Carts from '~/components/Carts.vue';
+import OtherCourses from '~/components/OtherCourses.vue';
 export default {
     components: {
         Header,
-        LoginAlert
+        LoginAlert,
+        Carts,
+        OtherCourses
     },
     data() {
         return {
