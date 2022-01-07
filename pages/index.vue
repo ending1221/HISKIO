@@ -2,7 +2,7 @@
 <div>
     <Header @change:LoginAlertState="handleLoginAlertState" />
     <Carts />
-    <OtherCourses />
+    <Fundraising />
     <LoginAlert 
         :login_alert="login_alert"
         @change:LoginAlertState="handleLoginAlertState"/>
@@ -15,13 +15,13 @@ import '~/assets/scss/layout.scss';
 import Header from '~/components/Header.vue';
 import LoginAlert from '~/components/LoginAlert.vue';
 import Carts from '~/components/Carts.vue';
-import OtherCourses from '~/components/OtherCourses.vue';
+import Fundraising from '~/components/Fundraising.vue';
 export default {
     components: {
         Header,
         LoginAlert,
         Carts,
-        OtherCourses
+        Fundraising
     },
     data() {
         return {

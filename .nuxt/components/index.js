@@ -1,9 +1,10 @@
 export { default as Carts } from '../../components/Carts.vue'
+export { default as CartsItem } from '../../components/CartsItem.vue'
 export { default as CartsList } from '../../components/CartsList.vue'
-export { default as CourseCard } from '../../components/CourseCard.vue'
+export { default as Fundraising } from '../../components/Fundraising.vue'
+export { default as FundraisingCard } from '../../components/FundraisingCard.vue'
 export { default as Header } from '../../components/Header.vue'
 export { default as LoginAlert } from '../../components/LoginAlert.vue'
-export { default as OtherCourses } from '../../components/OtherCourses.vue'
 export { default as SubTotal } from '../../components/SubTotal.vue'
 
 // nuxt/nuxt.js#8607

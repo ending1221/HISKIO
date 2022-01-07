@@ -2,20 +2,23 @@
   "Carts": {
     "description": "Auto imported from components/Carts.vue"
   },
+  "CartsItem": {
+    "description": "Auto imported from components/CartsItem.vue"
+  },
   "CartsList": {
     "description": "Auto imported from components/CartsList.vue"
   },
-  "CourseCard": {
-    "description": "Auto imported from components/CourseCard.vue"
+  "Fundraising": {
+    "description": "Auto imported from components/Fundraising.vue"
+  },
+  "FundraisingCard": {
+    "description": "Auto imported from components/FundraisingCard.vue"
   },
   "Header": {
     "description": "Auto imported from components/Header.vue"
   },
   "LoginAlert": {
     "description": "Auto imported from components/LoginAlert.vue"
-  },
-  "OtherCourses": {
-    "description": "Auto imported from components/OtherCourses.vue"
   },
   "SubTotal": {
     "description": "Auto imported from components/SubTotal.vue"

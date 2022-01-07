@@ -7,9 +7,10 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<Carts>` | `<carts>` (components/Carts.vue)
+- `<CartsItem>` | `<carts-item>` (components/CartsItem.vue)
 - `<CartsList>` | `<carts-list>` (components/CartsList.vue)
-- `<CourseCard>` | `<course-card>` (components/CourseCard.vue)
+- `<Fundraising>` | `<fundraising>` (components/Fundraising.vue)
+- `<FundraisingCard>` | `<fundraising-card>` (components/FundraisingCard.vue)
 - `<Header>` | `<header>` (components/Header.vue)
 - `<LoginAlert>` | `<login-alert>` (components/LoginAlert.vue)
-- `<OtherCourses>` | `<other-courses>` (components/OtherCourses.vue)
 - `<SubTotal>` | `<sub-total>` (components/SubTotal.vue)

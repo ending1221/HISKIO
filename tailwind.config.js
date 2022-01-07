@@ -16,7 +16,7 @@ module.exports = {
             'sm': '640px',
             'md': '768px',
             'sn-1000': {'max': '1000px'},
-            'lg': '1024px',
+            'lg': '1000px',
             'xl': '1280px',
             '2xl': '1536px'
         },
@@ -27,6 +27,9 @@ module.exports = {
                 },
                 red: {
                     '1': '#E4494A'
+                },
+                yellow: {
+                    '3': '#FFA81D'
                 }
             },
             width: {
@@ -44,6 +47,7 @@ module.exports = {
                 '400px': '400px',
             },
             height: {
+                '6px': '6px',
                 '18px':'18px',
                 '20px':'20px',
                 '40px':'40px',
@@ -60,11 +64,18 @@ module.exports = {
                 '5%': '5%'
             },
             fontSize: {
+                '22px': '22px',
                 '32px': '32px'
             },
             margin: {
                 '70px': '70px'
+            },
+            padding: {
+                '26px': '26px'
             }
         }
     },
+    plugins: [
+        require('@tailwindcss/line-clamp'),
+    ]
 }

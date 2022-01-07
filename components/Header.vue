@@ -1,9 +1,9 @@
 <template>
-    <header class="fixed top-0 z-10 w-full bg-white shadow-sm h-50px">
+    <header class="fixed top-0 z-10 w-full bg-white shadow-sm h-[50px]">
         <section class="relative flex items-center justify-between h-full xl:mx-auto max-w-1170 ml-4 mr-2 lg:mr-2">
             <div class="flex items-stretch justify-start flex-grow h-full">
-                <a href="/" class="logo-hiskio block w-66px h-full bg-contain bg-center bg-no-repeat overflow-hidden whitespace-nowrap lg:block lg:mr-3 lg:w-100px block mr-3"></a>
-                <a href="https://www.1111.com.tw/corp/73081297/" target="_blank" class="items-center mr-20px flex">
+                <a href="/" class="logo-hiskio block w-66px h-full bg-contain bg-center bg-no-repeat overflow-hidden whitespace-nowrap lg:block lg:mr-3 lg:w-[100px] mr-3"></a>
+                <a href="https://www.1111.com.tw/corp/73081297/" target="_blank" class="items-center mr-[20px] flex">
                     <img src="https://frontend.f5ezcode.in/img/header-recruit.3e1f6fd.png" alt="recruit" width="80px">
                 </a>
             </div>
@@ -35,22 +35,23 @@
                             </svg>
                         </button>
                     </li> 
-                    <li class="lg:block">
-                        <div class="rounded-full cursor-pointer w-32px h-32px" style="background-image: url(&quot;https://lh6.googleusercontent.com/-zaTOxv3k6rs/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcF58bPi3b-09xEah-rj-SGqzx1Ew/mo/photo.jpg&amp;sz=250&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+                    <!-- 頭像 -->
+                    <li v-if="isLogin" class="lg:block">
+                        <div class="rounded-full cursor-pointer w-[32px] h-[32px]" style="background-image: url(&quot;https://lh6.googleusercontent.com/-zaTOxv3k6rs/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rcF58bPi3b-09xEah-rj-SGqzx1Ew/mo/photo.jpg&amp;sz=250&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat;">
                         </div>
                     </li>
                     <li class="flex-shrink-0 lg:hidden">
-                        <button class="w-40px h-40px">
+                        <button class="w-[40px] h-[40px]">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxkZWZzPgogICAgICAgIDxzdHlsZT4KICAgICAgICAgICAgLnByZWZpeF9fY2xzLTJ7ZmlsbDojOGM4YzhjfQogICAgICAgIDwvc3R5bGU+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0icHJlZml4X19pY29uLW1lbnUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NjUgLTUwNTIpIj4KICAgICAgICA8cGF0aCBpZD0icHJlZml4X19SZWN0YW5nbGVfMTQxNSIgZmlsbD0ibm9uZSIgZD0iTTAgMEgxOFYxOEgweiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMTQxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDY1IDUwNTIpIi8+CiAgICAgICAgPGcgaWQ9InByZWZpeF9fR3JvdXBfMjQ1IiBkYXRhLW5hbWU9Ikdyb3VwIDI0NSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNCAxKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJwcmVmaXhfX1JlY3RhbmdsZV8xNDEyIiB3aWR0aD0iMTYiIGhlaWdodD0iMiIgY2xhc3M9InByZWZpeF9fY2xzLTIiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDE0MTIiIHJ4PSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NjMgNTA1MykiLz4KICAgICAgICAgICAgPHJlY3QgaWQ9InByZWZpeF9fUmVjdGFuZ2xlXzE0MTMiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyIiBjbGFzcz0icHJlZml4X19jbHMtMiIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMTQxMyIgcng9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MyA1MDU5KSIvPgogICAgICAgICAgICA8cmVjdCBpZD0icHJlZml4X19SZWN0YW5nbGVfMTQxNCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjIiIGNsYXNzPSJwcmVmaXhfX2Nscy0yIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxNDE0IiByeD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDYzIDUwNjUpIi8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" width="18px" height="18px" alt="menu" class="mx-auto">
                         </button>
                     </li>
                 </ul> 
-                <button class="text-xl leading-none text-gray-700 w-40px h-40px lg:hidden hidden">
+                <button class="text-xl leading-none text-gray-700 w-[40px] h-[40px] lg:hidden hidden">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" class="svg-inline--fa fa-times fa-w-11">
                         <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" class="" data-darkreader-inline-fill="" style="--darkreader-inline-fill:currentColor;"></path>
                     </svg>
                 </button> 
-                <button class="text-xl leading-none text-gray-700 w-40px h-40px lg:hidden hidden">
+                <button class="text-xl leading-none text-gray-700 w-[40px] h-[40px] lg:hidden hidden">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" class="svg-inline--fa fa-times fa-w-11">
                         <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" class="" data-darkreader-inline-fill="" style="--darkreader-inline-fill:currentColor;"></path>
                     </svg>

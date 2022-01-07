@@ -2,9 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-$green-2: #288fac;
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%
+}
 
 body {
+    margin: 0;
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     button {
         font-weight: 300;
     }
@@ -40,4 +45,20 @@ body {
 
 .default-solid-btn {
     @apply flex h-40px w-200px items-center justify-center rounded bg-green-3 text-white;
+}
+
+.course-card-image {
+    .course-card-cover {
+        display: none;
+    }
+    &:hover {
+        .course-card-cover {
+            @apply lg:flex md:hidden;
+        }
+    }
+}
+
+
+.shadow-package-card {
+    @apply drop-shadow-[0px_10px_15px_rgba(0,0,0,0.05)];
 }

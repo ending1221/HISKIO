@@ -1,8 +1,8 @@
 <template>
     <div v-if="login_alert" class="overlay flex justify-center items-center">
-        <div class="relative w-full max-h-screen overflow-auto bg-white bg-top bg-no-repeat bg-contain bg-layout max-w-450 rounded-xl pb-7 pt-10 sn-1000:h-auto  sn-1000:h-auto sm:rounded-xl sm:h-full sm:pb-12">
+        <div class="relative w-full max-h-screen overflow-auto bg-white bg-top bg-no-repeat bg-contain bg-layout max-w-450 rounded-xl pb-7 pt-10 sn-1000:h-auto  sm:rounded-xl sm:h-full sm:pb-12">
             <button 
-                class="absolute top-3 right-2.5 w-40px h-40px text-xl leading-none"
+                class="absolute top-3 right-2.5 w-[40px] h-[40px] text-xl leading-none"
                 @click="closeLoginAlert">
                 <svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" class="text-gray-700 svg-inline--fa fa-times fa-w-11">
                     <path  fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" class=""></path>
@@ -13,26 +13,26 @@
                     <button class="text-4xl leading-[37px] w-160px text-center font-black text-gray-400 pt-5 pb-2 transition-colors float-left text-green">登入</button> 
                     <button class="text-4xl leading-[37px] w-160px text-center font-black text-gray-400 pt-5 pb-2 transition-colors float-right">註冊</button>
                 </div>
-                <div class="clear-both w-full mx-auto bg-white max-w-320">
+                <div class="clear-both w-full mx-auto bg-white max-w-[320]">
                     <span class="block transition-transform duration-150 dash bg-green w-80px h-1 left-0 text-green transform translate-x-10"></span>
                 </div>
             </div> 
             <div  class="w-full">
                 <div class="w-full h-full">
                     <div class="flex flex-col items-center justify-between w-1/2 mx-auto mt-6">
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-320px mb-3">
+                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
                             <img src="/images/icon-facebook.svg" alt="HiSKIO facebook login" class="mr-3"> 
                             <p class="text-base text-gray-600 w-140px">使用Facebook登入</p>
                         </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-320px mb-3">
+                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
                             <img src="/images/icon-google.svg" alt="HiSKIO google login" class="mr-3"> 
                             <p class="text-base text-gray-600 w-140px">使用Google登入</p>
                         </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-320px mb-3">
+                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
                             <img src="/images/icon-github.svg" alt="HiSKIO github login" class="mr-3"> 
                             <p class="text-base text-gray-600 w-140px">使用Github登入</p>
                         </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-320px mb-3">
+                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
                             <img src="/images/icon-linkedin.svg" alt="HiSKIO linkedin login" class="mr-3"> <p class="text-base text-gray-600 w-140px">使用LinkedIn登入</p>
                         </a>
                     </div> 
@@ -55,9 +55,9 @@
                             <p class="text-xs text-red-4">請輸入密碼</p>
                         </ul>
                     </div> 
-                    <div class="flex items-center mx-auto policy w-320px mt-5">
+                    <div class="flex items-center mx-auto policy w-[320px] mt-5">
                         <a @click="changeConfirmState" 
-                            href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-18px h-18px bg-green rounded-2px mr-1">
+                            href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-[18px] h-[18px] bg-green rounded-2px mr-1">
                             <svg 
                                 v-show="confirm"
                                 aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-check fa-w-16 fa-xs">
@@ -72,7 +72,7 @@
                     </div> 
                     <button 
                         @click="login" 
-                        class="mx-auto default-solid-btn w-320px mt-7 py-2">登入</button> 
+                        class="mx-auto default-solid-btn w-[320px] mt-7 py-2">登入</button> 
                     <button class="flex justify-center mx-auto text-center btn-text-gray-600 mt-5">忘記密碼</button>
                 </div>
             </div>
