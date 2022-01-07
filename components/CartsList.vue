@@ -66,6 +66,7 @@ export default {
             try {
                 const res = await apiPostCarts(carts)
                 this.newCartsData = res.data;
+                this.$store.dispatch('changeCartsCourseData', res.data)
                 console.log('carts', res.data);
             } catch (error) {
                 console.log('error:', error);

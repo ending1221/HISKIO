@@ -81,6 +81,9 @@ export const actions = {
         } catch (error) {
             console.log('error', error);
         }
+    },
+    changeCartsCourseData({ commit }, data) {
+        commit('changeCartsState', data)
     }
 };
 
@@ -89,7 +92,6 @@ export const mutations = {
     changeCartsState(state, cartsData) {
         state.cartCourseData = cartsData;
     },
-
 };
 
 // getters

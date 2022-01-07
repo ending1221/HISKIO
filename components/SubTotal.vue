@@ -18,11 +18,11 @@
             <div class="flex justify-between mt-5 mb-4 pt-5 border-t border-gray-400">
                 <div class="flex-shrink-0 text-gray-400 leading-none">金額</div> 
                 <div class="text-gray-700 leading-none">
-                    <span class="text-sm leading-4">$</span>0
+                    <span class="text-sm leading-4">$</span>{{formatTotal.subtotal}}
                 </div>
             </div>
             <div class="mb-5 text-right text-32px leading-none text-blueGray-4 font-medium">
-                <span class="text-2xl leading-8">$</span>0
+                <span class="text-2xl leading-8">$</span>{{formatTotal.total}}
             </div> 
             <button class="block mb-3 w-full h-10 bg-gray-200 text-gray-500 cursor-not-allowed">前往結帳</button> 
             <p class="text-xs leading-5 text-gray-600">
@@ -35,7 +35,33 @@
 
 <script>
 export default {
-
+    data() {
+        let cartCourseData = this.$store.state.cartCourseData;
+        return {
+            prices: {
+                total: cartCourseData.total ? cartCourseData.total : 0,
+                subtotal: cartCourseData.subtotal ? cartCourseData.subtotal : 0,
+            }
+        }
+    },
+    computed: {
+        carts() {
+            return this.$store.state.cartCourseData
+        },
+        formatTotal() {
+            console.log('this.prices', this.prices);
+            return {
+                total: this.$carts.addThousand(this.prices.total),
+                subtotal: this.$carts.addThousand(this.prices.subtotal)
+            }   
+        }
+    },
+    watch: {
+        carts(newCarts, oldCarts) {
+            if(newCarts) this.prices = { total: newCarts.total, subtotal: newCarts.subtotal };
+            console.log('newCarts', newCarts);
+        }
+    }
 }
 </script>
 
