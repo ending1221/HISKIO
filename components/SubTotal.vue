@@ -49,7 +49,6 @@ export default {
             return this.$store.state.cartCourseData
         },
         formatTotal() {
-            console.log('this.prices', this.prices);
             return {
                 total: this.$carts.addThousand(this.prices.total),
                 subtotal: this.$carts.addThousand(this.prices.subtotal)
@@ -59,7 +58,6 @@ export default {
     watch: {
         carts(newCarts, oldCarts) {
             if(newCarts) this.prices = { total: newCarts.total, subtotal: newCarts.subtotal };
-            console.log('newCarts', newCarts);
         }
     }
 }

@@ -13,7 +13,7 @@
                     <button class="text-4xl leading-[37px] w-160px text-center font-black text-gray-400 pt-5 pb-2 transition-colors float-left text-green">登入</button> 
                     <button class="text-4xl leading-[37px] w-160px text-center font-black text-gray-400 pt-5 pb-2 transition-colors float-right">註冊</button>
                 </div>
-                <div class="clear-both w-full mx-auto bg-white max-w-[320]">
+                <div class="clear-both w-full mx-auto bg-white max-w-320">
                     <span class="block transition-transform duration-150 dash bg-green w-80px h-1 left-0 text-green transform translate-x-10"></span>
                 </div>
             </div> 
@@ -40,22 +40,28 @@
                     <div class="mx-auto overflow-hidden w-320px">
                         <ul>
                             <li class="relative">
-                                <input v-model="account" type="email" placeholder="請輸入 HiSKIO ID" class="input-text"> 
+                                <input 
+                                :class="{'error': errorMsg.account.length > 0}"
+                                    v-model="account" 
+                                    type="email" placeholder="請輸入 HiSKIO ID" class="input-text"> 
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="absolute text-gray-400 top-1/2 w-20px h-20px left-5% -translate-y-1/2 transform svg-inline--fa fa-user-circle fa-w-16">
                                         <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" class=""></path>
                                 </svg>
                             </li> 
-                            <p class="text-xs text-red-4"></p> 
+                            <p class="text-xs text-red-4">{{errorMsg.account}}</p> 
                             <li class="relative mt-2">
-                                <input v-model="password" type="password" placeholder="請輸入登入密碼" class="input-text"> 
+                                <input 
+                                    v-model="password" 
+                                    :class="{'error': errorMsg.password.length > 0}"
+                                    type="password" placeholder="請輸入登入密碼" class="input-text"> 
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="absolute text-gray-400 top-1/2 transform -translate-y-1/2 w-20px h-20px left-5% svg-inline--fa fa-lock fa-w-14">
                                     <path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
                                 </svg>
                             </li> 
-                            <p class="text-xs text-red-4">請輸入密碼</p>
+                            <p class="text-xs text-red-4">{{errorMsg.password}}</p>
                         </ul>
                     </div> 
-                    <div class="flex items-center mx-auto policy w-[320px] mt-5">
+                    <div class="flex items-center mx-auto policy w-320px mt-5">
                         <a @click="changeConfirmState" 
                             href="javascript:void(0)" class="flex items-center justify-center float-left text-white w-[18px] h-[18px] bg-green rounded-2px mr-1">
                             <svg 
@@ -81,7 +87,6 @@
 </template>
 
 <script>
-import { apiAuthLogin } from '~/api';
 export default {
     props: {
         login_alert: {
@@ -93,7 +98,11 @@ export default {
         return {
             account: '',
             password: '',
-            confirm: true
+            confirm: true,
+            errorMsg: {
+                account: '',
+                password: ''
+            }
         }
     },
     methods: {
@@ -104,25 +113,51 @@ export default {
             this.confirm = !this.confirm;
         },
         async login() {
-            try {
-                if(this.verifyLoginData()) {
-                    await apiAuthLogin({
-                        account: this.account,
-                        password: this.password,
-                        confirm: this.confirm
-                    })
-                }
-            } catch (error) {
-                
+            if(this.verifyLoginData()) {
+                let token = await this.$store.dispatch('login', {
+                    account: this.account,
+                    password: this.password,
+                    confirm: this.confirm
+                })
+                await this.$store.dispatch('getMember', token);
+                await this.$store.dispatch('getLoginCarts', token);
+                this.$emit('change:LoginAlertState', false);
             }
         },
         verifyLoginData() {
-
-            if(this.account && this.password && this.confirm) {
-
+            let account = this.checkAccount();
+            let password = this.checkPassword();
+            let confirm = this.checkConfirm()
+            if(account && password && confirm) {
+                return true
+            } else {
+                return false
+            }
+        },
+        checkAccount() {
+            if(this.account.length > 0) {
+                this.errorMsg.account = '';
+                return true
+            } else {
+                this.errorMsg.account = '請輸入帳號';
+            }
+        },
+        checkPassword() {
+            if(this.password.length > 0) {
+                this.errorMsg.password = '';
+                return true
+            } else {
+                this.errorMsg.password = '請輸入密碼';
+            }
+        },
+        checkConfirm() {
+            if(this.confirm) {
+                return true
+            } else {
+                alert('你尚未同意 HiSKIO 使用者及隱私權政策');
             }
         }
-    }
+    },
 }
 </script>
 

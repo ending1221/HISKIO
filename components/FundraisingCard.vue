@@ -1,6 +1,6 @@
 <template>
     <li class="border-b-default border-gray-400 lg:border-b-0">
-        <a :href="`/fundraising/${carouse.id}/about`" class="block w-full pt-5 rounded-[10px] lg:p-0 lg:bg-white lg:drop-shadow-[0px_10px_15px_rgba(0,0,0,0.05)] pb-[26px]">
+        <a :href="`https://hiskio.com/fundraising/${carouse.id}/about`" class="block w-full pt-5 rounded-[10px] lg:p-0 lg:bg-white lg:drop-shadow-[0px_10px_15px_rgba(0,0,0,0.05)] pb-[26px]">
             <div class="flex w-full lg:flex-col lg:mb-0 mb-4">
                 <div class="relative flex-shrink-0 mr-4 bg-center bg-cover rounded-md course-card-image w-[114px] h-64px lg:mr-0 lg:pt-[54.64285%] lg:w-full lg:h-auto lg:rounded-t-[10px] lg:rounded-b-none" :data-src="`${carouse.thumbnails.w300}`" lazy="loaded" :style="`background-image: url(&quot;${carouse.thumbnails.w300}&quot;);`">
                     <div class="absolute inset-x-0 bottom-0 flex items-end justify-end p-2 leading-none course-card-cover h-1/2 text-22px md:hidden" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(250, 250, 250, 0));">

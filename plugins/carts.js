@@ -1,11 +1,12 @@
 export default ({ app }, inject) => {
     inject("carts", {
         addThousand(money) {
-            console.log('money', money);
             if(money) {
                 let string = typeof money === String ? money : money.toString();
                 let result = string.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                 return result
+            } else {
+                return 0
             }
         },
         getLastFundraisingData(prices) {

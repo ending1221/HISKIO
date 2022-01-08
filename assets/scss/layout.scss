@@ -62,3 +62,7 @@ body {
 .shadow-package-card {
     @apply drop-shadow-[0px_10px_15px_rgba(0,0,0,0.05)];
 }
+
+.error {
+    @apply border-red-4 border;
+}
