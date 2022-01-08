@@ -88,12 +88,12 @@ export default {
         }
     },
     mounted() {
-        // try {
-        //     const token = this.$cookies.get('HISKIOUID');
-        //     this.$store.dispatch('getMember', token);
-        // } catch (error) {
-            
-        // }
+        try {
+            const token = this.$cookies.get('HISKIOUID');
+            if(token !== undefined) this.$store.dispatch('getMember', token);
+        } catch (error) {
+            console.log(error);
+        }
     },
     computed: {
         carts() {
@@ -101,7 +101,10 @@ export default {
         },
         me() {
             return this.$store.state.me
-        }
+        },
+        // login() {
+        //     return this.$store.state.isLogin
+        // }
     },
     watch: {
         carts(newCarts, oldCarts) {
@@ -110,7 +113,10 @@ export default {
         me(newMe) {
             this.isLogin = true;
             this.meData = newMe;
-        }
+        },
+        // login(newState) {
+        //     this.isLogin = newState;
+        // }
     }
 }
 </script>

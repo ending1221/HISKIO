@@ -5,4 +5,4 @@ export const getMember = (token) => apiServer.get('me', { headers: { 'Authorizat
 export const getFundraising = () => apiServer.get('courses/fundraising');
 
 export const postCarts = (data, token='') => apiServer.post('carts', data, { headers: { 'Authorization': `Bearer ${token}` } });
-export const delCarts = (data, token='') => apiServer.delete('carts', data, { headers: { 'Authorization': `Bearer ${token}` } });
+export const delCarts = (data, token='') => apiServer.delete('carts', {data,  headers: { 'Authorization': `Bearer ${token}` } });

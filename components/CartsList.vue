@@ -61,29 +61,13 @@ export default {
         CartsItem
     },
     async mounted() {
-        let carts = JSON.parse(localStorage.getItem('carts'));
-        if(carts) {
-            try {
-                const res = await apiPostCarts(carts);
-                this.newCartsData = res.data;
-                this.$store.dispatch('changeCartsCourseData', res.data)
-                // this.saveNewCarts(res.data)
-            } catch (error) {
-                console.log('error:', error);
-            }
+        try {
+            const token = await this.$store.dispatch('getLocalToken');
+            await this.$store.dispatch('getLoginCarts', token);
+        } catch (error) {
+            console.log('error:', error);
         }
     },
-    // saveNewCarts(data) {
-    //     let arr = data.map(item => {
-    //         return {
-    //             coupon: '',
-    //             gid: '',
-    //             id: item.id,
-    //             pipeline: '',
-    //             source: '',
-    //         }
-    //     })
-    // },
     data() {
         return {
             newCartsData: {},
@@ -102,9 +86,6 @@ export default {
                 this.newCartsData = carts;
                 this.length = carts.data.length;
             } 
-                
-
-            console.log(carts.data.length);
         }
     }
 }

@@ -8,9 +8,18 @@ export const state = () => ({
 
 // actions
 export const actions = {
-    async getMember({ commit }, loginUID='') {
-        // if(loginUID === '') loginUID = $nuxt.$cookies.get('HiSKIOUID');
-        // console.log('getMember',loginUID);
+    async getLocalToken({ commit }) {
+        const token = await this.$cookies.get('HISKIOUID');
+        token === undefined ? '' : token;
+        commit('changeIsLogin', false);
+        return token
+    },
+    async getMember({ commit }, loginUID) {
+        if(loginUID === undefined) {
+            commit('changeMeData', {});
+            return false;
+        };
+
         try {
             const meRes = await apiGetMember(loginUID);
             localStorage.setItem('me', JSON.stringify(meRes));
@@ -22,9 +31,7 @@ export const actions = {
         }
     },
     async addCarts(context, carouseId) {
-        // 未登入
         try {
-            let data;
             let item = {
                 id: carouseId,
                 coupon: '',
@@ -35,27 +42,28 @@ export const actions = {
 
             let oldCarts = JSON.parse(localStorage.getItem('carts'));
             if(oldCarts && oldCarts.items.length > 0) {
-                let isRepeat = false;
-                oldCarts.items.forEach((item, i) => {
-                    if(item.id === carouseId) {
-                        // 查找重複，如果有重複的就刪除
-                        isRepeat = true
-                        oldCarts.items.splice(i, 1);
-                    }
-                });
-                isRepeat ? '' : oldCarts.items.push(item);
+                let result = await context.dispatch('delCarouseInCarts', carouseId);
+                let isRepeat = result.isRepeat;
+                oldCarts = result.oldCarts;
+                console.log('isRepeat', isRepeat);
+                if(!isRepeat) {
+                    oldCarts.items.push(item);
+                }
             } else {
                 // 若為 null，給預設空值
                 oldCarts = { items: [item], coupons: [] };
             }
-            const res = await apiPostCarts(oldCarts)
-            data = res.data;
-            localStorage.setItem('carts', JSON.stringify(oldCarts));
-            context.commit("changeCartsState", data);
+            await context.dispatch('getCartsData', oldCarts);
 
         } catch (error) {
             console.log('error', error);
         }
+    },
+    async getCartsData({ dispatch, commit }, carts) {
+        const token = dispatch('getLocalToken');
+        const res = await apiPostCarts(carts, token);
+        localStorage.setItem('carts', JSON.stringify(carts));
+        commit("changeCartsState", res.data);
     },
     async login({ commit }, data) {
         try {
@@ -63,27 +71,53 @@ export const actions = {
             const res = await apiAuthLogin(data);
             const token = res.data.access_token;
             commit('changeIsLogin', true);
+            this.$cookies.remove('HISKIOUID')
+            this.$cookies.set('HISKIOUID', token, new Date(new Date() + res.data.expires_in))
             return token
         } catch (error) {
             console.log('error', error);
             return false
         }
     },
-    async delCarouseInCarts({ commit }, id) {
-        console.log(id);
+    async delCarouseInCarts({ dispatch }, id) {
         try {
             let oldCarts = JSON.parse(localStorage.getItem('carts'));
+            let isRepeat = false;
             oldCarts.items.forEach((item, i) => {
                 if(item.id == id) {
                     // 查找重複，如果有重複的就刪除
+                    isRepeat = true;
                     oldCarts.items.splice(i, 1);
                 }
             });
-            const res = await apiPostCarts(oldCarts);
-            localStorage.setItem('carts', JSON.stringify(oldCarts));
-            commit("changeCartsState", res.data);
+            if(isRepeat) {
+                const msg = await dispatch('delCarts', id);
+                console.log('msg',msg);
+            }
+            await dispatch('getCartsData', oldCarts);
+            return {
+                isRepeat,
+                oldCarts
+            }
         } catch (error) {
             console.log('error', error);
+        }
+    },
+    async delCarts({ dispatch, state },id) {
+        if(!state.isLogin) return
+        const token = await dispatch('getLocalToken');
+        try {
+            const res = await apiDelCarts({
+                items: [{
+                    id,
+                    coupon: ''
+                }],
+                coupons: [],
+            }, token);
+            return res.data
+        } catch (error) {
+            console.log(error);
+            return false
         }
     },
     changeCartsCourseData({ commit }, data) {
@@ -92,6 +126,7 @@ export const actions = {
     async getLoginCarts({ commit }, token){
         try {
             let oldCarts = JSON.parse(localStorage.getItem('carts'));
+            oldCarts = oldCarts === undefined ? [] : oldCarts;
             const res = await apiPostCarts(oldCarts, token);
             let arr = {
                 items: [],
@@ -130,7 +165,7 @@ export const mutations = {
 // getters
 export const getters = {
     getCarts: state => {
-        return state.carts;
+        return state.cartCourseData;
     },
     getMeData: state => {
         return state.me
