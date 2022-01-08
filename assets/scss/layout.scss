@@ -39,12 +39,12 @@ body {
     @apply bg-green-3 text-white;
 }
 .btn-outline-primary {
-    @apply rounded bg-transparent text-green-3 border border-green-3;
+    @apply bg-transparent text-green-3 border border-green-3;
 }
 
 
-.default-solid-btn {
-    @apply flex h-40px w-200px items-center justify-center rounded bg-green-3 text-white;
+.btn-solid-default {
+    @apply h-40px w-[320px] bg-green-3 text-white;
 }
 
 .course-card-image {

@@ -5,7 +5,7 @@
                 <div class="relative flex-shrink-0 mr-3 w-[120px] sn-1000:mr-2 sn-1000:w-[62px]">
                     <img :src="cartsItemData.thumbnails.w300" alt="course" class="object-cover w-full h-[68px] rounded-md sn-1000:h-[34px]">
                 </div> 
-                <a :href="`/fundraising/${cartsItemData.id}/about`" class="sn-1000:flex-grow sn-1000:text-sm" target="_blank">
+                <a :href="`https://hiskio.com/fundraising/${cartsItemData.id}/about`" class="sn-1000:flex-grow sn-1000:text-sm" target="_blank">
                     <p class="self-start font-medium text-gray-700 sn-1000:leading-tight">{{cartsItemData.name}}</p>
                 </a> 
                 <button class="flex-shrink-0 hidden text-lg leading-none text-gray-500 hover:text-gray-400 focus:text-gray-600 ml-[36px] sn-1000:block">

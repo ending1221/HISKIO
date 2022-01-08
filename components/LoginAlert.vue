@@ -20,21 +20,22 @@
             <div  class="w-full">
                 <div class="w-full h-full">
                     <div class="flex flex-col items-center justify-between w-1/2 mx-auto mt-6">
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
-                            <img src="/images/icon-facebook.svg" alt="HiSKIO facebook login" class="mr-3"> 
-                            <p class="text-base text-gray-600 w-140px">使用Facebook登入</p>
-                        </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
-                            <img src="/images/icon-google.svg" alt="HiSKIO google login" class="mr-3"> 
-                            <p class="text-base text-gray-600 w-140px">使用Google登入</p>
-                        </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
-                            <img src="/images/icon-github.svg" alt="HiSKIO github login" class="mr-3"> 
-                            <p class="text-base text-gray-600 w-140px">使用Github登入</p>
-                        </a>
-                        <a href="javascript:void(0)" class="flex items-center justify-center border-gray-500 border py-2.5 rounded-lg w-[320px] mb-3">
-                            <img src="/images/icon-linkedin.svg" alt="HiSKIO linkedin login" class="mr-3"> <p class="text-base text-gray-600 w-140px">使用LinkedIn登入</p>
-                        </a>
+                        <ThirdPartyLoginButton
+                            image="/images/icon-facebook.svg"
+                            alt="HiSKIO facebook login"
+                            label="使用Facebook登入" />
+                        <ThirdPartyLoginButton
+                            image="/images/icon-google.svg"
+                            alt="HiSKIO google login"
+                            label="使用google登入" />
+                        <ThirdPartyLoginButton
+                            image="/images/icon-github.svg"
+                            alt="HiSKIO github login"
+                            label="使用Github登入" />
+                        <ThirdPartyLoginButton
+                            image="/images/icon-linkedin.svg"
+                            alt="HiSKIO linkedin login"
+                            label="使用LinkedIn登入" />
                     </div> 
                     <p class="text-base text-center text-gray-700 mt-6 mb-5 ">使用 HiSKIO ID 登入</p> 
                     <div class="mx-auto overflow-hidden w-320px">
@@ -76,9 +77,9 @@
                             </p>
                         </div>
                     </div> 
-                    <button 
+                    <Button 
                         @click="login" 
-                        class="mx-auto default-solid-btn w-[320px] mt-7 py-2">登入</button> 
+                        class="mx-auto btn-solid-default mt-7 py-2">登入</Button> 
                     <button class="flex justify-center mx-auto text-center btn-text-gray-600 mt-5">忘記密碼</button>
                 </div>
             </div>
@@ -87,7 +88,13 @@
 </template>
 
 <script>
+import Button from '~/components/Button.vue';
+import ThirdPartyLoginButton from '~/components/ThirdPartyLoginButton.vue';
 export default {
+    components: {
+        Button,
+        ThirdPartyLoginButton
+    },
     props: {
         login_alert: {
             type: Boolean,

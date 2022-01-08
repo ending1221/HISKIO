@@ -62,10 +62,10 @@
                     </svg>
                 </button> 
                 <div v-if="!isLogin" class="items-center justify-end hidden h-full lg:flex">
-                    <button 
-                        class="flex items-center justify-center w-16 h-8 text-sm border-solid btn-outline-primary border rounded mx-2"
-                        @click="loginAlert">登入</button> 
-                    <button data-v-3eb09fda="" class="flex items-center justify-center w-16 h-8 text-sm btn-primary mx-2 rounded">註冊</button>
+                    <Button 
+                        class="btn-outline-primary"
+                        :click="loginAlert">登入</Button> 
+                    <Button class="btn-primary">註冊</Button>
                 </div>
             </div>
         </section>
@@ -73,8 +73,11 @@
 </template>
 
 <script>
-
+import Button from '~/components/Button.vue';
 export default {
+    components: {
+        Button
+    },
     methods: {
         loginAlert() {
             this.$emit('change:LoginAlertState', true);
@@ -124,7 +127,7 @@ export default {
 <style lang="scss">
 
 .logo-hiskio {
-    background-image: url('@/assets/images/logo-hiskio.svg');
+    background-image: url('/images/logo-hiskio.svg');
 }
 
 </style>

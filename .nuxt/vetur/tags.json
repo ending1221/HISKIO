@@ -1,4 +1,7 @@
 {
+  "Button": {
+    "description": "Auto imported from components/Button.vue"
+  },
   "Carts": {
     "description": "Auto imported from components/Carts.vue"
   },
@@ -22,5 +25,8 @@
   },
   "SubTotal": {
     "description": "Auto imported from components/SubTotal.vue"
+  },
+  "ThirdPartyLoginButton": {
+    "description": "Auto imported from components/ThirdPartyLoginButton.vue"
   }
 }
