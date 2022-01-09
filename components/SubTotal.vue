@@ -1,6 +1,6 @@
 <template>
     <div class="flex-grow max-w-380 sn-1000:max-w-none">
-        <h2 class="mb-5 text-2xl leading-none text-blueGray-4 font-medium sn-1000:text-xl sn-1000:leading-none">小計</h2> 
+        <Title class="sn-1000:text-xl sn-1000:leading-none mb-5" label="小計" />
         <div class="pt-3 px-4 pb-5 bg-white rounded-xl sn-1000:pt-5" style="box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px;">
             <div class="mb-5">
                 <label for="coupon-code" class="block mb-3 leading-none text-gray-400">輸入折扣代碼</label> 
@@ -34,7 +34,11 @@
 </template>
 
 <script>
+import Title from '~/components/Title.vue';
 export default {
+    components: {
+        Title
+    },
     data() {
         let cartCourseData = this.$store.state.cartCourseData;
         return {

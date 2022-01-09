@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { configure } from '@storybook/vue'
-import '@/css/tailwind.css';
-import '@/assets/scss/laylot.scss';
+// import '@/css/tailwind.css';
+// import '@/assets/scss/laylot.scss';
 
 
 Vue.component('nuxt-link', {

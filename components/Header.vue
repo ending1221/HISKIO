@@ -9,21 +9,18 @@
             </div>
             <div class="flex items-center justify-end">
                 <ul class="items-center justify-end h-full mobile lg:flex flex">
-                    <li class="text-gray-700 header-btn lg:block">
-                        <a href="/teach" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3"> 我想開課
+                    <li class="text-gray-700 lg:block">
+                        <a href="/teach" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3">我想開課
                         </a>
                     </li> 
                     <li 
                         v-if="isLogin"
-                        class="relative text-gray-700 header-btn lg:block">
-                        <span class=""></span> 
-                        <a href="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3">
-                        <span class=""></span>
-                        任務板
+                        class="relative text-gray-700 lg:block">
+                        <a href="/account/missions" class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 textBtn hover:text-green-3">任務板
                         </a>
                     </li>
                     <li v-if="isLogin"
-                        class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 header-btn lg:block textBtn hover:text-green-3">
+                        class="text-gray-700 transition-colors duration-100 ease-in cursor-pointer px-2 lg:block textBtn hover:text-green-3">
                         <a href="/account/courses?tab=continue" class="">我的學習</a>
                     </li>
                 </ul> 
