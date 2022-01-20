@@ -1,5 +1,14 @@
-
+const routerBase =
+    process.env.DEPLOY_ENV === 'GH_PAGES'
+        ? {
+            router: {
+            base: '/HISKIO/'
+            }
+        }
+        : {}
 export default {
+    ...routerBase,
+    
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'HISKIO',

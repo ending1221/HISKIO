@@ -1,0 +1,37 @@
+{
+  "entry": "server.js",
+  "files": {
+    "components/button.js": "components/button.js",
+    "components/carts-item.js": "components/carts-item.js",
+    "components/carts-list.js": "components/carts-list.js",
+    "components/carts.js": "components/carts.js",
+    "components/fundraising-card.js": "components/fundraising-card.js",
+    "components/fundraising.js": "components/fundraising.js",
+    "components/header.js": "components/header.js",
+    "components/login-alert.js": "components/login-alert.js",
+    "components/no-collection.js": "components/no-collection.js",
+    "components/sub-title.js": "components/sub-title.js",
+    "components/sub-total.js": "components/sub-total.js",
+    "components/third-party-login-button.js": "components/third-party-login-button.js",
+    "components/title.js": "components/title.js",
+    "pages/index.js": "pages/index.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "components/button.js": "components/button.js.map",
+    "components/carts-item.js": "components/carts-item.js.map",
+    "components/carts-list.js": "components/carts-list.js.map",
+    "components/carts.js": "components/carts.js.map",
+    "components/fundraising-card.js": "components/fundraising-card.js.map",
+    "components/fundraising.js": "components/fundraising.js.map",
+    "components/header.js": "components/header.js.map",
+    "components/login-alert.js": "components/login-alert.js.map",
+    "components/no-collection.js": "components/no-collection.js.map",
+    "components/sub-title.js": "components/sub-title.js.map",
+    "components/sub-total.js": "components/sub-total.js.map",
+    "components/third-party-login-button.js": "components/third-party-login-button.js.map",
+    "components/title.js": "components/title.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "server.js": "server.js.map"
+  }
+}

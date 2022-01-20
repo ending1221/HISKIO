@@ -1,16 +1,16 @@
-export { default as Button } from '../../components/Button.vue'
-export { default as Carts } from '../../components/Carts.vue'
-export { default as CartsItem } from '../../components/CartsItem.vue'
-export { default as CartsList } from '../../components/CartsList.vue'
-export { default as Fundraising } from '../../components/Fundraising.vue'
-export { default as FundraisingCard } from '../../components/FundraisingCard.vue'
-export { default as Header } from '../../components/Header.vue'
-export { default as LoginAlert } from '../../components/LoginAlert.vue'
-export { default as NoCollection } from '../../components/NoCollection.vue'
-export { default as SubTitle } from '../../components/SubTitle.vue'
-export { default as SubTotal } from '../../components/SubTotal.vue'
-export { default as ThirdPartyLoginButton } from '../../components/ThirdPartyLoginButton.vue'
-export { default as Title } from '../../components/Title.vue'
+export const Button = () => import('../../components/Button.vue' /* webpackChunkName: "components/button" */).then(c => wrapFunctional(c.default || c))
+export const Carts = () => import('../../components/Carts.vue' /* webpackChunkName: "components/carts" */).then(c => wrapFunctional(c.default || c))
+export const CartsItem = () => import('../../components/CartsItem.vue' /* webpackChunkName: "components/carts-item" */).then(c => wrapFunctional(c.default || c))
+export const CartsList = () => import('../../components/CartsList.vue' /* webpackChunkName: "components/carts-list" */).then(c => wrapFunctional(c.default || c))
+export const Fundraising = () => import('../../components/Fundraising.vue' /* webpackChunkName: "components/fundraising" */).then(c => wrapFunctional(c.default || c))
+export const FundraisingCard = () => import('../../components/FundraisingCard.vue' /* webpackChunkName: "components/fundraising-card" */).then(c => wrapFunctional(c.default || c))
+export const Header = () => import('../../components/Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
+export const LoginAlert = () => import('../../components/LoginAlert.vue' /* webpackChunkName: "components/login-alert" */).then(c => wrapFunctional(c.default || c))
+export const NoCollection = () => import('../../components/NoCollection.vue' /* webpackChunkName: "components/no-collection" */).then(c => wrapFunctional(c.default || c))
+export const SubTitle = () => import('../../components/SubTitle.vue' /* webpackChunkName: "components/sub-title" */).then(c => wrapFunctional(c.default || c))
+export const SubTotal = () => import('../../components/SubTotal.vue' /* webpackChunkName: "components/sub-total" */).then(c => wrapFunctional(c.default || c))
+export const ThirdPartyLoginButton = () => import('../../components/ThirdPartyLoginButton.vue' /* webpackChunkName: "components/third-party-login-button" */).then(c => wrapFunctional(c.default || c))
+export const Title = () => import('../../components/Title.vue' /* webpackChunkName: "components/title" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
