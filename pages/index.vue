@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import '~/assets/scss/layout.scss';
+// import '~/assets/scss/layout.scss';
 import Header from '~/components/Header.vue';
 import LoginAlert from '~/components/LoginAlert.vue';
 import Carts from '~/components/Carts.vue';

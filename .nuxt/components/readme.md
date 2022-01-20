@@ -14,5 +14,8 @@ You can directly use them in pages and other components without the need to impo
 - `<FundraisingCard>` | `<fundraising-card>` (components/FundraisingCard.vue)
 - `<Header>` | `<header>` (components/Header.vue)
 - `<LoginAlert>` | `<login-alert>` (components/LoginAlert.vue)
+- `<NoCollection>` | `<no-collection>` (components/NoCollection.vue)
+- `<SubTitle>` | `<sub-title>` (components/SubTitle.vue)
 - `<SubTotal>` | `<sub-total>` (components/SubTotal.vue)
 - `<ThirdPartyLoginButton>` | `<third-party-login-button>` (components/ThirdPartyLoginButton.vue)
+- `<Title>` | `<title>` (components/Title.vue)

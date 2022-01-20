@@ -19,6 +19,7 @@ export default {
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
+        
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -35,8 +36,11 @@ export default {
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
         '@nuxt/postcss8',
+        '@nuxtjs/style-resources'
     ],
-
+    styleResources: {
+        scss: ['./assets/scss/*.scss']
+    },
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         // https://go.nuxtjs.dev/axios
@@ -54,5 +58,27 @@ export default {
                 autoprefixer: {},
             },
         },
+    },
+    moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/$1',
+        '^~/(.*)$': '<rootDir>/$1',
+        '^vue$': 'vue/dist/vue.common.js',
+    },
+    moduleFileExtensions: ['js', 'vue', 'json'],
+    transform: {
+        '^.+\\.js$': 'babel-jest',
+        '.*\\.(vue)$': 'vue-jest',
+        '^.+\\.tsx?$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
+        '^.+\\.svg$': '<rootDir>/svgTransform.js',
+    },
+    collectCoverage: true,
+    collectCoverageFrom: [
+        '<rootDir>/components/**/*.vue',
+        '<rootDir>/pages/**/*.vue',
+    ],
+    storybook: {
+        stories: [
+            '~/stories/**/*.stories.js',
+        ],
     }
 }

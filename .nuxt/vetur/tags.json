@@ -23,10 +23,19 @@
   "LoginAlert": {
     "description": "Auto imported from components/LoginAlert.vue"
   },
+  "NoCollection": {
+    "description": "Auto imported from components/NoCollection.vue"
+  },
+  "SubTitle": {
+    "description": "Auto imported from components/SubTitle.vue"
+  },
   "SubTotal": {
     "description": "Auto imported from components/SubTotal.vue"
   },
   "ThirdPartyLoginButton": {
     "description": "Auto imported from components/ThirdPartyLoginButton.vue"
+  },
+  "Title": {
+    "description": "Auto imported from components/Title.vue"
   }
 }
