@@ -8,7 +8,6 @@ const routerBase =
         : {}
 export default {
     ...routerBase,
-    
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: 'HISKIO',
@@ -85,9 +84,4 @@ export default {
         '<rootDir>/components/**/*.vue',
         '<rootDir>/pages/**/*.vue',
     ],
-    storybook: {
-        stories: [
-            '~/stories/**/*.stories.js',
-        ],
-    }
 }
